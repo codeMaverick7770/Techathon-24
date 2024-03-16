@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Search</title>
+<style>
+  /* CSS styles */
+  body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .search-bar {
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  .cards-container {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  .card {
+    width: calc(30% - 20px);
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  .card p {
+    margin-bottom: 0;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="search-bar">
+    <input type="text" class="search-input" placeholder="Search for jobs...">
+  </div>
+  <div class="cards-container" id="cardsContainer">
+    <!-- Job cards will be inserted here dynamically -->
+  </div>
+</div>
+
+<script>
+  // Sample job data (you can replace it with your actual job data)
+  const jobs = [
+    { title: "Product Manager", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit." },
+    { title: "Software Engineer", description: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas." },
+    { title: "Data Analyst", description: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae." },
+    { title: "Marketing Specialist", description: "Sed consequat, leo eget pharetra malesuada, purus mi feugiat lorem, sit amet pellentesque ligula lectus nec leo." },
+    { title: "UX Designer", description: "Nullam eget mauris a metus luctus placerat. Morbi tempor ante in semper mollis." },
+    { title: "Sales Representative", description: "Vestibulum cursus dolor et magna suscipit, eget sollicitudin risus ultrices." },
+    { title: "Financial Analyst", description: "Fusce interdum massa id tortor varius, eget commodo justo feugiat." },
+    { title: "Human Resources Manager", description: "Integer id nisi quis tortor volutpat sollicitudin." },
+    { title: "Content Writer", description: "Etiam aliquet enim vel nibh cursus, sit amet condimentum ex eleifend." },
+    { title: "Project Coordinator", description: "Nam id mauris commodo, vehicula nisi vitae, ultrices sapien." }
+  ];
+
+  // Function to generate job cards
+  function generateJobCards(jobs) {
+    const cardsContainer = document.getElementById("cardsContainer");
+    cardsContainer.innerHTML = ""; // Clear previous cards
+
+    jobs.forEach(job => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const title = document.createElement("h3");
+      title.textContent = job.title;
+
+      const description = document.createElement("p");
+      description.textContent = job.description;
+
+      card.appendChild(title);
+      card.appendChild(description);
+      cardsContainer.appendChild(card);
+    });
+  }
+
+  // Display all jobs initially
+  generateJobCards(jobs);
+
+  // Search functionality
+  document.querySelector(".search-input").addEventListener("input", function() {
+    const searchTerm = this.value.toLowerCase();
+
+    const filteredJobs = jobs.filter(job => {
+      return job.title.toLowerCase().includes(searchTerm) || job.description.toLowerCase().includes(searchTerm);
+    });
+
+    generateJobCards(filteredJobs);
+  });
+</script>
+
+</body>
+</html>
