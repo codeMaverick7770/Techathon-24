@@ -31,8 +31,7 @@ Welcome to JobSeeker, a project developed during the [Techathon Name] techathon.
 1. **Clone the Repository**: Clone the JobSeeker repository to your local machine.
 
     ```bash
-    git clone https://github.com/yourusername/jobseeker.git
-    ```
+    git clone https://github.com/codeMaverick7770/Techathon-24
 
 2. **Open the Project**: Navigate to the project directory and open the `index.html` file in your web browser.
 
@@ -48,7 +47,7 @@ Welcome to JobSeeker, a project developed during the [Techathon Name] techathon.
 
 - Tauqeer(https://github.com/codeMaverick7770)
 - Harsh(https://github.com/Harshchaturvedi29)
-- Anuja(https://github.com/)
+- Anuja(https://github.com/Anujakatiyar)
 
 ---
 
